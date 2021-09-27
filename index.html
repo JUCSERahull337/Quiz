@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Quiz App</title>
+</head>
+<body>
+    <style>
+        #maindiv {
+            background-color: white;
+            border: 4px solid black;
+            width: 400px;
+            height: 400px;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .buttons01 {
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 100px;
+        }
+
+        .buttons02 {
+            background-color: lightblue;
+            color: black;
+            padding: 5px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 150px;
+        }
+
+        #text01 {
+            text-align: center;
+        }
+
+        #text02 {
+            text-align: left;
+        }
+
+        #green {
+            color: green;
+        }
+
+        #red {
+            color: red;
+        }
+    </style>
+	<div class="d-flex justify-content-center">
+	
+			<div id="maindiv">
+			<div id="text01">
+				<h2>Online quiz exam</h2>
+				Question: <text id="number001">0</text><br />
+				Score: <text id="score001">0</text>
+			<hr />
+					<div id="message001">Click Begin to start</div><br />
+				</div>
+			<div id="text02">
+				<div id="question001"></div>
+				<div id="option001"></div>
+				<div id="option002"></div>
+				<div id="option003"></div>
+				<div id="option004"></div>
+				<div id="answer001"></div>
+				<div id="text01">
+					<div id="disappear001"><button class="buttons01" onclick="begin001()">Begin</button></div>
+				</div>
+				<div id="next001"></div>
+			</div>
+			</div>
+	
+	
+	
+	</div>
+		
+    
+    <script>
+        var q = ["Which is platform independent language?<br /><br />", "Which is class of all class?<br /><br />", "Frame package is in which package?<br /><br />", "Java does not support?<br /><br />"];
+        var a1 = ["<button class=buttons02 onclick=q1c()>c++</button>",
+                  "<button class=buttons02 onclick=q2c()>Object</button>",
+                  "<button class=buttons02 onclick=q3c()>AWT</button>",
+                  "<button class=buttons02 onclick=q4i()>inheritance</button>"];
+
+        var a2 = ["<button class=buttons02 onclick=q1i()>c</button>",
+                  "<button class=buttons02 onclick=q2i()>Math</button>",
+                  "<button class=buttons02 onclick=q3i()>Applet</button>",
+                  "<button class=buttons02 onclick=q4c()>Multiple inheritance</button>"];
+
+        var a3 = ["<button class=buttons02 onclick=q1i()>Java</button>",
+                  "<button class=buttons02 onclick=q2i()>System</button>",
+                  "<button class=buttons02 onclick=q3i()>Lang</button>",
+                  "<button class=buttons02 onclick=q4i()>Polymorphism</button>"];
+
+        var a4 = ["<button class=buttons02 onclick=q1i()>BASIC</button>",
+                  "<button class=buttons02 onclick=q2i()>Graphic</button>",
+                  "<button class=buttons02 onclick=q3i()>Swing</button>",
+                  "<button class=buttons02 onclick=q4i()>Encryption</button>"];
+
+        var c = ["Correct", "Correct", "Correct", "Correct"];
+        var i = ["Incorrect", "Incorrect", "Incorrect", "Incorrect"];
+
+        var n = 0;
+        n++;
+        var s = 0;
+        s++;
+
+        function begin001() {
+            disappear001.innerHTML = "";
+            message001.innerHTML = "";
+            question001.innerHTML = q[0];
+            option001.innerHTML = a1[0];
+            option002.innerHTML = a2[0];
+            option003.innerHTML = a3[0];
+            option004.innerHTML = a4[0];
+            number001.innerHTML = n++;
+        }
+
+        function q1c() {
+            answer001.innerHTML = "<div id=green>" + c[0] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons01 onclick=new002()>Next</button>";
+            score001.innerHTML = s++;
+        }
+
+        function q1i() {
+            answer001.innerHTML = "<div id=red>" + i[0] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons01 onclick=new002()>Next</button>";
+        }
+
+        function new002() {
+            question001.innerHTML = q[1];
+            option001.innerHTML = a1[1];
+            option002.innerHTML = a2[1];
+            option003.innerHTML = a3[1];
+            option004.innerHTML = a4[1];
+            next001.innerHTML = "";
+            answer001.innerHTML = "";
+            number001.innerHTML = n++;
+        }
+
+        function q2c() {
+            answer001.innerHTML = "<div id=green>" + c[1] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons01 onclick=new003()>Next</button>";
+            score001.innerHTML = s++;
+        }
+
+        function q2i() {
+            answer001.innerHTML = "<div id=red>" + i[1] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons01 onclick=new003()>Next</button>";
+        }
+
+        function new003() {
+            question001.innerHTML = q[2];
+            option001.innerHTML = a1[2];
+            option002.innerHTML = a2[2];
+            option003.innerHTML = a3[2];
+            option004.innerHTML = a4[2];
+            next001.innerHTML = "";
+            answer001.innerHTML = "";
+            number001.innerHTML = n++;
+        }
+
+        function q3c() {
+            answer001.innerHTML = "<div id=green>" + c[2] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons01 onclick=new004()>Next</button>";
+            score001.innerHTML = s++;
+        }
+
+        function q3i() {
+            answer001.innerHTML = "<div id=red>" + i[2] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons01 onclick=new004()>Next</button>";
+        }
+
+        function new004() {
+            question001.innerHTML = q[3];
+            option001.innerHTML = a1[3];
+            option002.innerHTML = a2[3];
+            option003.innerHTML = a3[3];
+            option004.innerHTML = a4[3];
+            next001.innerHTML = "";
+            answer001.innerHTML = "";
+            number001.innerHTML = n++;
+        }
+
+        function q4c() {
+            answer001.innerHTML = "<div id=green>" + c[3] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons01 onclick=end001()>Submit</button>";
+            score001.innerHTML = s++;
+        }
+
+        function q4i() {
+            answer001.innerHTML = "<div id=red>" + i[3] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons01 onclick=end()>Submit</button>";
+        }
+
+        
+
+        function end() {
+            message001.innerHTML = "End of Quiz.";
+            question001.innerHTML = "";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<div id=text01>" + "<button class=buttons01 onclick=repeat()>Reload</button>" + "</div>";
+            answer001.innerHTML = "";
+        }
+
+        function repeat() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
